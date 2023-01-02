@@ -1,16 +1,18 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 import Index from "./src/screens/Index";
+import Rigester from "./src/screens/Rigester";
 
-export default function App() {
-  return <Index />;
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+const navigator = createStackNavigator(
+  {
+    login: Index,
+    Rigester: Rigester,
   },
-});
+  {
+    initialRouteName: "login",
+    defaultNavigationOptions: {
+      title: "",
+    },
+  }
+);
+export default createAppContainer(navigator);

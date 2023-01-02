@@ -9,9 +9,10 @@ import {
   ImageBackground,
 } from "react-native";
 
-const Index = () => {
+const Index = ({ navigation }) => {
   const [user, setUser] = useState();
   const [password, setPassword] = useState();
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Login</Text>
@@ -28,7 +29,11 @@ const Index = () => {
       <Button title="login" />
       <View style={styles.rigester}>
         <Text>don't have account ? /</Text>
-        <Pressable>
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Rigester");
+          }}
+        >
           <Text>Rigester</Text>
         </Pressable>
       </View>
