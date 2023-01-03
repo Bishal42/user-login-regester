@@ -8,10 +8,12 @@ import {
   Pressable,
   ImageBackground,
 } from "react-native";
+import data from "../data/data";
 
 const Index = ({ navigation }) => {
   const [user, setUser] = useState();
   const [password, setPassword] = useState();
+  console.log(data);
 
   return (
     <View style={styles.container}>
@@ -25,8 +27,9 @@ const Index = ({ navigation }) => {
         style={styles.userpassword}
         placeholder="user password"
         value={password}
+        secureTextEntry={true}
       />
-      <Button title="login" />
+      <Button title="login" onPress={() => navigation.navigate("Welcome")} />
       <View style={styles.rigester}>
         <Text>don't have account ? /</Text>
         <Pressable

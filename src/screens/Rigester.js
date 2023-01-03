@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -7,19 +7,34 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const Rigester = () => {
+const Rigester = ({ navigation }) => {
+  const [fullName, setFullName] = useState();
+  const [userName, setUserName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Rigester</Text>
       <Text>Full name</Text>
-      <TextInput placeholder="full name" style={styles.input} />
+      <TextInput
+        placeholder="full name"
+        style={styles.input}
+        value={fullName}
+      />
       <Text>user name</Text>
-      <TextInput placeholder="user_name" style={styles.input} />
+      <TextInput
+        placeholder="user_name"
+        style={styles.input}
+        value={userName}
+      />
       <Text>email</Text>
-      <TextInput placeholder="email" style={styles.input} />
+      <TextInput placeholder="email" style={styles.input} value={email} />
       <Text>password</Text>
-      <TextInput placeholder="password" style={styles.input} />
-      <TouchableOpacity style={styles.button}>
+      <TextInput placeholder="password" style={styles.input} value={password} />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("login")}
+      >
         <Text> Rigester</Text>
       </TouchableOpacity>
     </View>
